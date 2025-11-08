@@ -1,0 +1,18 @@
+[project]
+name = "quant-project"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+requires-python = ">=3.13"
+dependencies = [
+    "akshare>=1.17.80",
+    "backtesting>=0.6.5",
+    "backtrader>=1.9.78.123",
+    "ipykernel>=7.1.0",
+    "joblib>=1.5.2",
+    "jupyterlab>=4.4.10",
+    "matplotlib>=3.10.7",
+    "mplfinance>=0.12.10b0",
+    "pandas>=2.3.3",
+    "pyarrow>=22.0.0",
+]

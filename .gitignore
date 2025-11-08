@@ -1,0 +1,54 @@
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+*.so
+*.dll
+
+# Packaging / build
+build/
+dist/
+*.egg-info/
+.eggs/
+
+# Virtual environments (managed by uv/venv)
+.venv/
+venv/
+.env/
+env/
+.python-version
+.uv/
+.uv_cache/
+
+# Jupyter
+.ipynb_checkpoints/
+.jupyter/
+
+# VS Code
+.vscode/
+.history/
+
+# Caches and reports
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.coverage
+coverage.xml
+htmlcov/
+.cache/
+
+# Data (keep small samples; ignore raw/temporary by default)
+data/raw/
+data/tmp/
+!data/README.md
+
+# OS files
+Thumbs.db
+Desktop.ini
+
+# Logs
+*.log
+
+# Do NOT ignore lockfile
+!uv.lock
