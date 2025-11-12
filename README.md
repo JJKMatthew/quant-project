@@ -98,3 +98,33 @@ A: `pyproject.toml` 设置为 `>=3.13`，建议本地安装 3.13 或以上。
 
 ---
 欢迎扩展 README：添加策略说明、性能指标、回测截图等。
+
+### 选股器使用示例
+本项目新增模块：`quant_project.stock_selector`，基于 AkShare 日线数据进行简单条件筛选。
+
+命令行运行（输出 parquet 与 HTML 到 `reports/selection.*`）：
+```powershell
+uv run python -m quant_project.stock_selector --start 2025-11-01 --end 2025-11-12 \
+	--min-price 3 --max-price 30 --min-amount 5e7 --min-turnover 0.01 --min-pct -5 --max-pct 8
+```
+
+仅指定部分股票：
+```powershell
+uv run python -m quant_project.stock_selector --start 2025-11-01 --end 2025-11-12 \
+	--symbols sh601988,sz000001 --min-turnover 0.02 --no-html
+```
+
+参数说明：
+- `--start --end` 日期范围（将使用区间内最后一个交易日的截面数据）。
+- `--symbols` 逗号分隔股票代码（不传则从行情接口获取全市场前若干只）。
+- `--min-price / --max-price` 收盘价范围。
+- `--min-amount / --max-amount` 成交额范围（单位：元）。
+- `--min-pct / --max-pct` 当日涨跌幅范围（百分比）。
+- `--min-turnover / --max-turnover` 换手率范围（支持填写 0.02 或 2 表示 2%）。
+- `--no-parquet / --no-html` 关闭对应输出。
+
+输出文件：
+- `reports/selection.parquet`
+- `reports/selection.html`（带简单样式，可浏览器查看）
+
+后续可扩展：加入多日均线上穿/下穿、量能突增、波动率过滤、打分排序等。
