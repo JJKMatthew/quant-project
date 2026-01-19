@@ -1,7 +1,0 @@
-* text=auto
-
-# Improve Python diffs
-*.py diff=python
-
-# Keep notebooks as text to avoid CRLF issues; large outputs should be avoided in commits
-*.ipynb text
